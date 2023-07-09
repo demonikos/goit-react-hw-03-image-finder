@@ -1,5 +1,3 @@
-@import-normalize; /* bring in normalize.css styles */
-
 html {
   box-sizing: border-box;
   width: 100vw;
@@ -22,11 +20,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 img {
   display: block;
   max-width: 100%;
@@ -36,7 +29,7 @@ img {
 /*
  * Стили компонента App
  */
- .App {
+.App {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
