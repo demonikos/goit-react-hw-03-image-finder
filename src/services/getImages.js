@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
 
-const PER_PAGE = 40;
+const PER_PAGE = 12;
 
 const getImages = async (query, page) => {
   const params = new URLSearchParams({
@@ -14,7 +14,7 @@ const getImages = async (query, page) => {
   });
 
   const imageList = await axios(`?q=${query}&${params}`);
-  return (imageList.data);
-}
+  return imageList.data;
+};
 
-export {getImages, PER_PAGE}
+export { getImages, PER_PAGE };

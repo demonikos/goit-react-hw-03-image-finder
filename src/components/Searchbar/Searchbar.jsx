@@ -5,7 +5,7 @@ export class Searchbar extends Component {
   state = { inputText: '' };
 
   onSubmitHandler = event => {
-    event.preventDefault(); 
+    event.preventDefault();
     this.props.onSubmit(event);
   };
 

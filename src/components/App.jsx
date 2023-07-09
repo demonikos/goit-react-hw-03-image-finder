@@ -53,11 +53,11 @@ export class App extends Component {
 
   onClick = (src, alt) => {
     this.setState({
-      isModalShow: true,
       largeImage: {
         src,
         alt,
       },
+      isModalShow: true,
     });
   };
 
@@ -103,8 +103,7 @@ export class App extends Component {
   }
 
   render() {
-    const { imageList, isLoadMoreShow, isModalShow, largeImage } =
-      this.state;
+    const { imageList, isLoadMoreShow, isModalShow, largeImage } = this.state;
 
     const { onClick, loadMore, onSubmit, closeModal } = this;
 

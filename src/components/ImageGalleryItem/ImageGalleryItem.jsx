@@ -6,7 +6,7 @@ export const ImageGalleryItem = ({ src, alt, largeImageURL, onClick }) => {
     <>
       <li
         className="ImageGalleryItem"
-        onClick={() => onClick(alt, largeImageURL)}
+        onClick={() => onClick(largeImageURL, alt)}
       >
         <img src={src} alt={alt} className="ImageGalleryItemImage" />
       </li>

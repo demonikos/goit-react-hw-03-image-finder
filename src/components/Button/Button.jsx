@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 export const Button = ({ onClick }) => {
   return (
-    <button
-      type="button"
-      id="loadMoreBtn"
-      className="Button"
-      onClick={onClick}
-    >
+    <button type="button" className="Button" onClick={onClick}>
       load more
     </button>
   );
