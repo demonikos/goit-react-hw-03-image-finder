@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
+import css from './ImageGallery.module.css';
+
 export const ImageGallery = ({ imageList, onClick }) => {
   return (
     <>
-      <ul className="ImageGallery">
+      <ul className={css.ImageGallery}>
         {imageList.map(elem => (
           <ImageGalleryItem
             key={elem.id}
@@ -21,6 +23,10 @@ export const ImageGallery = ({ imageList, onClick }) => {
 };
 
 ImageGallery.propTypes = {
-  imageList: PropTypes.array.isRequired,
+  imageList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
   onClick: PropTypes.func.isRequired,
 };

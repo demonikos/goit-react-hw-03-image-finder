@@ -9,6 +9,8 @@ import { Modal } from './Modal/Modal';
 
 import { getImages, PER_PAGE } from 'services/getImages';
 
+import css from './App.module.css';
+
 export class App extends Component {
   state = {
     imageList: null,
@@ -70,7 +72,6 @@ export class App extends Component {
       await getImages(this.state.query, this.state.page)
         .then(response => {
           const lastPage = Math.ceil(response.totalHits / PER_PAGE);
-          console.log(lastPage);
           if (response.totalHits === 0) {
             Notify.warning(
               'Sorry, there are no images matching your search query. Please try again.'
@@ -109,7 +110,7 @@ export class App extends Component {
 
     return (
       <>
-        <div className="App">
+        <div className={css.App}>
           <Searchbar onSubmit={onSubmit} />
           {imageList && (
             <ImageGallery imageList={imageList} onClick={onClick} />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import css from './Modal.module.css';
+
 export class Modal extends Component {
   onClose = () => {
     this.props.closeModal();
@@ -15,22 +17,18 @@ export class Modal extends Component {
   };
 
   componentDidMount() {
-    document.addEventListener('keydown', this.onClose);
+    window.addEventListener('keydown', this.EscapeClick);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.onClose);
+    window.removeEventListener('keydown', this.EscapeClick);
   }
 
   render() {
     return (
-      <div className="Overlay" onClick={this.BackdropClick}>
-        <div className="Modal">
-          <img
-            className="ImageGalleryItemImage"
-            src={this.props.src}
-            alt={this.props.alt}
-          />
+      <div className={css.Overlay} onClick={this.BackdropClick}>
+        <div className={css.Modal}>
+          <img src={this.props.src} alt={this.props.alt} />
         </div>
       </div>
     );
