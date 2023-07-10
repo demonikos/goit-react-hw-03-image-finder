@@ -71,25 +71,22 @@ export class App extends Component {
       this.setState({ isLoaderShow: true });
       await getImages(this.state.query, this.state.page)
         .then(response => {
+          console.log(response);
           const lastPage = Math.ceil(response.totalHits / PER_PAGE);
+          console.log(lastPage);
           if (response.totalHits === 0) {
             Notify.warning(
               'Sorry, there are no images matching your search query. Please try again.'
             );
             this.setState({ isLoadMoreShow: false });
-          } else {
-          }
-          if (this.state.page === lastPage) {
+            console.log('check # 1');
+          } else if (lastPage < this.state.page && lastPage !== 0) {
+            this.setState({ isLoadMoreShow: false });
             Notify.info(
               `We're sorry, but you've reached the end of search results.`
             );
-            this.setState({ isLoadMoreShow: false });
+            console.log('check # 2');
           } else {
-            if (this.state.page === 1) {
-              Notify.success(
-                `Hooray! We found some images for request "${this.state.query}".`
-              );
-            }
             this.setState(prevState => {
               return {
                 imageList: [...prevState.imageList, ...response.hits],
