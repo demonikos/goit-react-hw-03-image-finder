@@ -67,7 +67,7 @@ export class App extends Component {
     if (
       prevState.query !== this.state.query ||
       prevState.page !== this.state.page
-    ) {
+    ) { 
       this.setState({ isLoaderShow: true });
       await getImages(this.state.query, this.state.page)
         .then(response => {
